@@ -7,6 +7,16 @@ interface JwtPayload {
   _id: string
 }
 
+declare global {
+  namespace Express {
+    interface Request {
+      user: {
+        _id: string;
+      };
+    }
+  }
+}
+
 const auth = (req: Request, res: Response, next: NextFunction) => {
   try {
     let token = req.cookies.jwt || req.headers.authorization;
