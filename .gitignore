@@ -1,6 +1,6 @@
+.env
 .env.deploy
 .idea
 node_modules
 *.log
 build
-.env
