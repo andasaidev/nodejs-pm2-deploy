@@ -13,15 +13,7 @@ const { PORT = 3000 } = process.env;
 const app = express();
 
 mongoose.set('strictQuery', true);
-
-// Подключение к MongoDB
 mongoose.connect(DB_ADDRESS);
-
-// Настройка CORS для продакшена
-app.use(cors({
-  origin: ['https://andanteassai.nomorepartiessite.ru', 'http://localhost:3000'],
-  credentials: true,
-}));
 
 // Crash-test эндпоинт (удалить после ревью)
 app.get('/crash-test', () => {
@@ -30,6 +22,7 @@ app.get('/crash-test', () => {
   }, 0);
 });
 
+app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -37,11 +30,4 @@ app.use(routes);
 app.use(errors());
 app.use(errorHandler);
 
-process.on('uncaughtException', (error) => {
-  console.error('Uncaught Exception:', error);
-  process.exit(1);
-});
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+app.listen(PORT, () => console.log('ok'));

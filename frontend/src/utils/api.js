@@ -1,4 +1,3 @@
-
 const getResponse = (res) => {
     return res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`);
 }
@@ -139,6 +138,6 @@ class Api {
   }
   }
   
-  const api = new Api('http://api.andanteassai.nomorepartiessite.ru');
+  const api = new Api('https://api.andanteassai.nomorepartiessite.ru');
 
   export default api;
