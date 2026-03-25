@@ -17,7 +17,7 @@ module.exports = {
       ref: `origin/${process.env.BRANCH}`,
       repo: process.env.REPO_PATH,
       path: process.env.BACKEND_PATH,
-      'pre-deploy': `bash scripts/deploy.sh ${process.env.USER}@${process.env.SERVER_IP} ${process.env.BACKEND_PATH}`,
+      'pre-deploy': `bash scripts/deployEnv.sh ${process.env.USER}@${process.env.SERVER_IP} ${process.env.BACKEND_PATH}`,
       'post-deploy': 'cd backend && npm ci && npm run build && pm2 startOrRestart ecosystem.config.js --env production',
       'ssh_options': 'StrictHostKeyChecking=no'
     },
