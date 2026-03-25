@@ -1,6 +1,8 @@
 const dotenv = require('dotenv');
 dotenv.config({ path: './.env.deploy' });
 
+const { USER, SERVER_IP, REPO_PATH, BRANCH, BACKEND_PATH } = process.env;
+
 module.exports = {
   apps: [{
     name: 'mesto-backend',
