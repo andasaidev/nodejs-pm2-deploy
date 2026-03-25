@@ -138,7 +138,7 @@ class Api {
       .then(getResponse)
   }
   }
-  // Замените на адрес вашего бэкенда
+  
   const api = new Api('http://api.andanteassai.nomorepartiessite.ru');
 
   export default api;
